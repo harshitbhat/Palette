@@ -34,6 +34,9 @@ const styles = {
 };
 
 class PaletteList extends Component {
+  goToPalette(id) {
+    this.props.history.push(`/palette/${id}`);
+  }
   render() {
     const { palettes, classes } = this.props;
     return (
@@ -46,7 +49,10 @@ class PaletteList extends Component {
             {palettes.map((palette) => (
               <div>
                 {/* <Link to={`/palette/${palette.id}`}>{palette.paletteName}</Link> */}
-                <MiniPalette {...palette} />
+                <MiniPalette
+                  {...palette}
+                  handleClick={() => this.goToPalette(palette.id)}
+                />
               </div>
             ))}
           </div>
