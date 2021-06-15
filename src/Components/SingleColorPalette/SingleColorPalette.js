@@ -34,7 +34,7 @@ class SingleColorPalette extends Component {
         key={color.id}
         id={color.name}
         paletteId={id}
-        showLink={false}
+        showingFullPalette={false}
       />
     ));
     return (
