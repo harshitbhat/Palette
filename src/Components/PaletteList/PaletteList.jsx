@@ -1,36 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/styles';
 import MiniPalette from '../MiniPalette/MiniPalette';
-
-const styles = {
-  root: {
-    backgroundColor: 'blue',
-    height: '100vh',
-    display: 'flex',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
-  container: {
-    width: '60%',
-    display: 'flex',
-    alignItems: 'flex-start',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-  },
-  nav: {
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'space-between',
-    color: '#fff',
-  },
-  palette: {
-    boxSizing: 'border-box',
-    width: '100%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 30%)',
-    gridGap: '5%',
-  },
-};
+import styles from '../../Styles/PaletteListStyle.js';
 
 class PaletteList extends Component {
   goToPalette(id) {
