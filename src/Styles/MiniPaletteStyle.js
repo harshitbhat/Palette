@@ -23,12 +23,10 @@ const styles = {
     alignItems: 'center',
     margin: '0',
     color: '#000',
-    paddingTop: '0.5rem',
     fontSize: '1rem',
     position: 'relative',
   },
   emoji: {
-    margin: '0.5rem',
     fontSize: '1.5rem',
   },
   miniColor: {
