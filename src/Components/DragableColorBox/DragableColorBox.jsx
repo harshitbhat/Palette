@@ -9,7 +9,7 @@ const styles = {
     display: 'inline-block',
     position: 'relative',
     cursor: 'pointer',
-    marginBottom: '-3.5px',
+    marginBottom: '-4.5px',
   },
 };
 
@@ -19,7 +19,7 @@ function DragableColorBox(props) {
       className={props.classes.root}
       style={{ backgroundColor: props.color }}
     >
-      {props.color}
+      {props.name}
     </div>
   );
 }

@@ -1,3 +1,5 @@
 - CopyToClipboard
 - RC - Slider
 - Material UI
+- react-color
+react-material-ui-form-validator
