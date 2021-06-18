@@ -7,6 +7,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { Picker } from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
 
 class SavePaletteForm extends Component {
   constructor(props) {
@@ -52,7 +54,7 @@ class SavePaletteForm extends Component {
     return (
       <Dialog
         open={this.state.open}
-        onClose={this.handleClose}
+        onClose={this.props.hideSaveForm}
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">Save Palette</DialogTitle>
@@ -63,6 +65,7 @@ class SavePaletteForm extends Component {
             <DialogContentText>
               Enter name for your palette. Choose unique name.
             </DialogContentText>
+            <Picker />
             <TextValidator
               label="Palette Name"
               value={this.state.newPaletteName}
@@ -78,7 +81,7 @@ class SavePaletteForm extends Component {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.props.hideSaveForm} color="primary">
               Cancel
             </Button>
             <Button variant="contained" color="primary" type="submit">
