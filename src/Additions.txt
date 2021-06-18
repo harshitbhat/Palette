@@ -2,4 +2,5 @@
 - RC - Slider
 - Material UI
 - react-color
-react-material-ui-form-validator
+- react-material-ui-form-validator
+- react-sortable-hoc

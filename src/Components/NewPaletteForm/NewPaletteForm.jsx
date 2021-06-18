@@ -12,8 +12,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
 import { ChromePicker } from 'react-color';
-import DragableColorBox from '../DragableColorBox/DragableColorBox';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import DragableColorList from '../DragableColorList/DragableColorList';
+import { arrayMove } from 'react-sortable-hoc';
 
 const drawerWidth = 300;
 
@@ -82,7 +83,16 @@ class NewPaletteForm extends Component {
       open: true,
       newColorName: '',
       currentColor: 'rgba(0, 0, 0, 1.0)',
-      colors: [],
+      colors: [
+        { name: 'FlatFlesh', color: '#fad390' },
+        { name: 'MelonMelody', color: '#f8c291' },
+        { name: 'Livid', color: '#6a89cc' },
+        { name: 'Spray', color: '#82ccdd' },
+        { name: 'ParadiseGreen', color: '#b8e994' },
+        { name: 'SquashBlossom', color: '#f6b93b' },
+        { name: 'MandarinRed', color: '#e55039' },
+        { name: 'AzraqBlue', color: '#4a69bd' },
+      ],
       newPaletteName: '',
     };
   }
@@ -172,6 +182,12 @@ class NewPaletteForm extends Component {
       (color) => color.name !== colorName
     );
     this.setState({ colors: newColors });
+  };
+
+  onSortEnd = ({ oldIndex, newIndex }) => {
+    this.setState(({ colors }) => ({
+      colors: arrayMove(colors, oldIndex, newIndex),
+    }));
   };
 
   render() {
@@ -276,14 +292,12 @@ class NewPaletteForm extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          {this.state.colors.map((color) => (
-            <DragableColorBox
-              key={color.name}
-              color={color.color}
-              name={color.name}
-              handleDeleteColor={() => this.handleDeleteColor(color.name)}
-            />
-          ))}
+          <DragableColorList
+            colors={this.state.colors}
+            removeColor={this.handleDeleteColor}
+            axis="xy"
+            onSortEnd={this.onSortEnd}
+          />
         </main>
       </div>
     );
