@@ -241,6 +241,21 @@ const palettes = [
       { name: 'ReefEncounter', color: '#079992' },
     ],
   },
+  {
+    paletteName: 'My random Palette',
+    id: 'my-random-palette',
+    emoji: '🇫🇷',
+    colors: [
+      { name: 'FlatFlesh', color: '#fad390' },
+      { name: 'MelonMelody', color: '#f8c291' },
+      { name: 'Livid', color: '#6a89cc' },
+      { name: 'Spray', color: '#82ccdd' },
+      { name: 'ParadiseGreen', color: '#b8e994' },
+      { name: 'SquashBlossom', color: '#f6b93b' },
+      { name: 'MandarinRed', color: '#e55039' },
+      { name: 'AzraqBlue', color: '#4a69bd' },
+    ],
+  },
 ];
 
 export default palettes;

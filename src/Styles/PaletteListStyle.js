@@ -5,6 +5,7 @@ const styles = {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
+    overflowY: 'scroll',
   },
   container: {
     width: '60%',

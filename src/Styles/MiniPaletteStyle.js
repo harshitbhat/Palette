@@ -12,10 +12,11 @@ const styles = {
   },
   color: {
     backgroundColor: '#dae1e4',
-    height: '125px',
+    height: '50px',
     width: '100%',
     borderRadius: '5px',
     overflow: 'hidden',
+    display: 'flex',
   },
   title: {
     display: 'flex',
@@ -27,11 +28,11 @@ const styles = {
     position: 'relative',
   },
   emoji: {
-    fontSize: '1.5rem',
+    fontSize: '1rem',
   },
   miniColor: {
-    height: '25%',
-    width: '20%',
+    height: '100%',
+    width: '100%',
     display: 'inline-block',
     margin: '0 auto',
     position: 'relative',

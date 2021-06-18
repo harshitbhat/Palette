@@ -8,7 +8,7 @@ const styles = {
     display: 'inline-block',
     position: 'relative',
     cursor: 'pointer',
-    marginBottom: '-3.5px',
+    marginBottom: '-3px',
     '&:hover button': {
       opacity: '1',
       transition: '0.5s',
