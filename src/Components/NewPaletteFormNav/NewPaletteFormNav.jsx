@@ -23,7 +23,6 @@ const styles = (theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     flexDirection: 'row',
-    border: '1px solid black',
     justifyContent: 'space-between',
     height: '64px',
   },
@@ -45,7 +44,6 @@ const styles = (theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '50%',
-    border: '1px solid black',
     marginRight: '20px',
   },
 });
