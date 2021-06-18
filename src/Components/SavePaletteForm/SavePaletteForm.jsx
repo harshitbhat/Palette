@@ -12,7 +12,7 @@ class SavePaletteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
+      open: true,
       newPaletteName: '',
     };
   }
@@ -50,57 +50,43 @@ class SavePaletteForm extends Component {
 
   render() {
     return (
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleClickOpen}
+      <Dialog
+        open={this.state.open}
+        onClose={this.handleClose}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Save Palette</DialogTitle>
+        <ValidatorForm
+          onSubmit={() => this.props.handleSubmit(this.state.newPaletteName)}
         >
-          Open form dialog
-        </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              To subscribe to this website, please enter your email address
-              here. We will send updates occasionally.
+              Enter name for your palette. Choose unique name.
             </DialogContentText>
-            <ValidatorForm
-              onSubmit={() =>
-                this.props.handleSubmit(this.state.newPaletteName)
-              }
-            >
-              <TextValidator
-                label="Palette Name"
-                value={this.state.newPaletteName}
-                name="newPaletteName"
-                onChange={this.handleChange}
-                validators={['required', 'isPaletteNameUnique']}
-                errorMessages={[
-                  'Palette name cannot be empty.',
-                  'Name already used.',
-                ]}
-              />
-
-              <Button variant="contained" color="primary" type="submit">
-                Save Palette
-              </Button>
-            </ValidatorForm>
+            <TextValidator
+              label="Palette Name"
+              value={this.state.newPaletteName}
+              name="newPaletteName"
+              fullWidth
+              margin="normal"
+              onChange={this.handleChange}
+              validators={['required', 'isPaletteNameUnique']}
+              errorMessages={[
+                'Palette name cannot be empty.',
+                'Name already used.',
+              ]}
+            />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary">
-              Subscribe
+            <Button variant="contained" color="primary" type="submit">
+              Save Palette
             </Button>
           </DialogActions>
-        </Dialog>
-      </div>
+        </ValidatorForm>
+      </Dialog>
     );
   }
 }

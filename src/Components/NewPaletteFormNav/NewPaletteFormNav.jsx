@@ -25,6 +25,7 @@ const styles = (theme) => ({
     }),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     height: '64px',
   },
   appBarShift: {
@@ -40,12 +41,14 @@ const styles = (theme) => ({
     marginRight: 20,
   },
   navButtons: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '50%',
-    marginRight: '20px',
+    marginRight: '1rem',
+  },
+  button: {
+    margin: '0 0.5rem',
+    '& a': {
+      textDecoration: 'none',
+      color: '#fff',
+    },
   },
 });
 
@@ -54,12 +57,16 @@ class NewPaletteFormNav extends Component {
     super(props);
     this.state = {
       newPaletteName: '',
+      formShowing: false,
     };
   }
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
     });
+  };
+  showSaveForm = () => {
+    this.setState({ formShowing: true });
   };
   render() {
     const { classes, open } = this.props;
@@ -88,17 +95,30 @@ class NewPaletteFormNav extends Component {
           </Toolbar>
           <div className={classes.navButtons}>
             {/*  */}
-            <SavePaletteForm
-              palettes={this.props.palettes}
-              handleSubmit={this.props.handleSubmit}
-            />
-            <Link to="/">
-              <Button variant="contained" color="secondary">
-                Go Back
-              </Button>
-            </Link>
+
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+            >
+              <Link to="/">Go Back</Link>
+            </Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={this.showSaveForm}
+              lassName={classes.button}
+            >
+              Save Palette
+            </Button>
           </div>
         </AppBar>
+        {this.state.formShowing && (
+          <SavePaletteForm
+            palettes={this.props.palettes}
+            handleSubmit={this.props.handleSubmit}
+          />
+        )}
       </div>
     );
   }
