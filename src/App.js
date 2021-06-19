@@ -11,8 +11,9 @@ import NewPaletteForm from './Components/NewPaletteForm/NewPaletteForm';
 class App extends Component {
   constructor(props) {
     super(props);
+    const savedPalettes = JSON.parse(window.localStorage.getItem('palettes'));
     this.state = {
-      palettes: seedPalettes,
+      palettes: savedPalettes || seedPalettes,
     };
   }
   findPalette = (id) => {
@@ -20,8 +21,20 @@ class App extends Component {
   };
   savePalette = (newPalette) => {
     console.log(newPalette);
-    this.setState({ palettes: [...this.state.palettes, newPalette] });
+    this.setState(
+      { palettes: [...this.state.palettes, newPalette] },
+      this.syncWithLocalStorage
+    );
   };
+
+  syncWithLocalStorage = () => {
+    // save palettes to local storage
+    window.localStorage.setItem(
+      'palettes',
+      JSON.stringify(this.state.palettes)
+    );
+  };
+
   render() {
     const { palettes } = this.state;
     return (
