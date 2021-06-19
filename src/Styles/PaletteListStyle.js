@@ -1,3 +1,5 @@
+import sizes from './sizes';
+
 const styles = {
   root: {
     backgroundColor: 'blue',
@@ -13,6 +15,12 @@ const styles = {
     alignItems: 'flex-start',
     flexDirection: 'column',
     flexWrap: 'wrap',
+    [sizes.down('lg')]: {
+      width: '80%',
+    },
+    [sizes.down('md')]: {
+      width: '95%',
+    },
   },
   nav: {
     display: 'flex',
@@ -37,6 +45,13 @@ const styles = {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 30%)',
     gridGap: '5%',
+    [sizes.down('md')]: {
+      gridTemplateColumns: 'repeat(2, 45%)',
+      gridGap: '10%',
+    },
+    [sizes.down('xs')]: {
+      gridTemplateColumns: 'repeat(1, 100%)',
+    },
   },
 };
 

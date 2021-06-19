@@ -11,7 +11,6 @@ const DragableColorList = SortableContainer(({ colors, removeColor }) => {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        flexDirection: 'flex-start',
         alignContent: 'flex-start',
       }}
     >
