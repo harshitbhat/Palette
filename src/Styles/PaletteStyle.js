@@ -1,11 +1,17 @@
 const styles = {
   Palette: {
     height: '100vh',
+    width: '100vw',
     display: 'flex',
     flexDirection: 'column',
   },
   PaletteColors: {
     height: '90%',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignContent: 'flex-start',
   },
   goBack: {
     width: '20%',

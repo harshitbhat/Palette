@@ -2,16 +2,22 @@ import chroma from 'chroma-js';
 
 const styles = {
   ColorBox: {
-    width: '20%',
     height: (props) => (props.showingFullPalette ? '25%' : '50%'),
-    margin: '0 auto',
+    width: '20%',
+    flex: '0 0 20%',
+    margin: '0',
     display: 'inline-block',
     position: 'relative',
     cursor: 'pointer',
-    marginBottom: '-3px',
     '&:hover button': {
       opacity: '1',
       transition: '0.5s',
+    },
+    '@media (max-width: 900px)': {
+      width: '50%',
+    },
+    '@media (max-width: 500px)': {
+      width: '100%',
     },
   },
   copyText: {
@@ -19,10 +25,13 @@ const styles = {
       chroma(props.background).luminance() >= 0.7 ? 'rgba(0,0,0,0.5)' : 'white',
   },
   colorName: {
-    color: (props) =>
-      chroma(props.background).luminance() <= 0.08
-        ? 'white'
-        : 'rgba(0,0,0,0.5)',
+    color: (props) => {
+      if (chroma(props.background).luminance() <= 0.08) {
+        return '#fff';
+      } else {
+        return 'rgba(0,0,0,0.5)';
+      }
+    },
   },
   seeMore: {
     color: (props) =>
@@ -62,9 +71,10 @@ const styles = {
   boxContent: {
     position: 'absolute',
     width: '100%',
-    padding: '10px',
+    marginLeft: '0.2rem',
     left: '0',
     bottom: '0',
+    padding: '5px',
     color: 'black',
     letterSpacing: '1px',
     textTransform: 'uppercase',
