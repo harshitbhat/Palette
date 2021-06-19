@@ -1,5 +1,3 @@
-import sizes from './sizes';
-
 const styles = {
   root: {
     backgroundColor: 'rgba(243, 240, 247, 0.4)',
