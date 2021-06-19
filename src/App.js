@@ -7,7 +7,7 @@ import { generatePalettes } from './ColorHelper';
 import PaletteList from './Components/PaletteList/PaletteList';
 import SingleColorPalette from './Components/SingleColorPalette/SingleColorPalette';
 import NewPaletteForm from './Components/NewPaletteForm/NewPaletteForm';
-import './App.css';
+import Page from './Components/Page/Page';
 
 class App extends Component {
   constructor(props) {
@@ -50,45 +50,45 @@ class App extends Component {
       <Route
         render={({ location }) => (
           <TransitionGroup>
-            <CSSTransition key={location.key} classNames="fade" timeout={500}>
+            <CSSTransition key={location.key} classNames="page" timeout={500}>
               <Switch location={location}>
                 <Route
                   exact
                   path="/palette/new"
                   render={(routeProps) => (
-                    <div className="page">
+                    <Page>
                       <NewPaletteForm
                         savePalette={this.savePalette}
                         palettes={this.state.palettes}
                         {...routeProps}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
                   exact
                   path="/"
                   render={(routeProps) => (
-                    <div className="page">
+                    <Page>
                       <PaletteList
                         palettes={palettes}
                         {...routeProps}
                         deletePalette={this.deletePalette}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
                   exact
                   path="/palette/:id"
                   render={(routeProps) => (
-                    <div className="page">
+                    <Page>
                       <Palette
                         palette={generatePalettes(
                           this.findPalette(routeProps.match.params.id)
                         )}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route

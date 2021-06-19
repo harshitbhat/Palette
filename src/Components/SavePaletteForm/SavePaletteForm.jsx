@@ -60,6 +60,7 @@ class SavePaletteForm extends Component {
       emoji: emojiObj.native,
     };
     this.props.handleSubmit(newPalette);
+    this.setState({ stage: '' });
   };
 
   render() {
