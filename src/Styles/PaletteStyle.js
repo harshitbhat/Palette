@@ -1,3 +1,5 @@
+import sizes from './sizes';
+
 const styles = {
   Palette: {
     height: '100vh',
@@ -15,8 +17,8 @@ const styles = {
     // overflow: 'scroll',
   },
   goBack: {
+    height: '50%',
     width: '20%',
-    height: (props) => (props.showingFullPalette ? '25%' : '50%'),
     margin: '0 auto',
     display: 'inline-block',
     position: 'relative',
@@ -41,6 +43,14 @@ const styles = {
       textTransform: 'uppercase',
       border: 'none',
       textDecoration: 'none',
+    },
+    [sizes.down('md')]: {
+      width: '20%',
+      height: '50%',
+    },
+    [sizes.down('sm')]: {
+      width: '100%',
+      height: '10%',
     },
   },
 };

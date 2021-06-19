@@ -14,15 +14,15 @@ const styles = {
       transition: '0.5s',
     },
     [sizes.down('lg')]: {
-      width: '25%',
-      height: (props) => (props.showingFullPalette ? '20%' : '25%'),
+      width: (props) => (props.showingFullPalette ? '25%' : '20%'), // 25%
+      height: (props) => (props.showingFullPalette ? '20%' : '50%'),
     },
     [sizes.down('md')]: {
-      width: '50%',
-      height: (props) => (props.showingFullPalette ? '10%' : '25%'),
+      width: (props) => (props.showingFullPalette ? '50%' : '20%'), //'50%',
+      height: (props) => (props.showingFullPalette ? '10%' : '50%'),
     },
-    [sizes.down('xs')]: {
-      width: '100%',
+    [sizes.down('sm')]: {
+      width: (props) => (props.showingFullPalette ? '100%' : '100%'), //'100%',
       height: (props) => (props.showingFullPalette ? '5%' : '10%'),
     },
   },
