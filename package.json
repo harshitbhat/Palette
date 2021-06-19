@@ -1,4 +1,5 @@
 {
+  "homepage": "https://harshitbhat.github.io/palette/",
   "name": "palette",
   "version": "0.1.0",
   "private": true,
@@ -18,7 +19,7 @@
     "react-dom": "^17.0.2",
     "react-material-ui-form-validator": "^2.1.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^4.0.3",
     "react-sortable-hoc": "^2.0.0",
     "react-transition-group": "^4.4.2",
     "web-vitals": "^1.0.1"
@@ -27,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
   }
 }
