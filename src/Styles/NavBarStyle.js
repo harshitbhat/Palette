@@ -1,3 +1,5 @@
+import sizes from './sizes';
+
 const styles = {
   Navbar: {
     display: 'flex',
@@ -16,6 +18,12 @@ const styles = {
     '& a': {
       textDecoration: 'none',
       color: '#000',
+    },
+    [sizes.down('sm')]: {
+      fontSize: '14px',
+    },
+    [sizes.down('xs')]: {
+      fontSize: '12px',
     },
   },
   slider: {
@@ -39,6 +47,12 @@ const styles = {
         marginLeft: '-7px',
         marginTop: '-3px',
       },
+    [sizes.down('sm')]: {
+      width: '170px',
+    },
+    [sizes.down('sm')]: {
+      width: '120px',
+    },
   },
   selectContainer: {
     marginLeft: 'auto',

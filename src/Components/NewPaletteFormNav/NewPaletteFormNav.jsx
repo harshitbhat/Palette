@@ -54,7 +54,12 @@ class NewPaletteFormNav extends Component {
             >
               <AddToPhotosIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.navName}
+            >
               Create your Palette
             </Typography>
           </Toolbar>
@@ -72,7 +77,7 @@ class NewPaletteFormNav extends Component {
               variant="outlined"
               color="primary"
               onClick={this.showSaveForm}
-              lassName={classes.button}
+              className={classes.button}
             >
               Save Palette
             </Button>
