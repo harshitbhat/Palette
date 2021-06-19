@@ -3,7 +3,7 @@ import sizes from './sizes';
 const styles = {
   root: {
     backgroundColor: 'rgba(243, 240, 247, 0.4)',
-    boxShadow: '0 5px 5px 5px rgba(0, 0, 0, 0.2)',
+    boxShadow: '0 10px 10px 10px rgba(0, 0, 0, 0.2)',
     borderRadius: '5px',
     padding: '0.5rem',
     position: 'relative',
@@ -11,9 +11,6 @@ const styles = {
     cursor: 'pointer',
     '&:hover svg': {
       opacity: '1',
-    },
-    [sizes.down('md')]: {
-      boxShadow: '0 10px 10px 10px rgba(0, 0, 0, 0.2)',
     },
   },
   color: {
@@ -48,15 +45,14 @@ const styles = {
     },
   },
   deleteIcon: {
+    height: '40%',
+    width: '12%',
     color: '#fff',
     backgroundColor: '#eb3d30',
-    width: '25px',
-    height: '25px',
     position: 'absolute',
     bottom: '0px',
     right: '0px',
     zIndex: '10',
-    padding: '5px',
     opacity: '0',
     transition: 'all 0.5s ease-in-out',
   },
