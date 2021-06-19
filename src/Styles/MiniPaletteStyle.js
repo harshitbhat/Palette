@@ -1,7 +1,9 @@
+import sizes from './sizes';
+
 const styles = {
   root: {
-    backgroundColor: '#fff',
-    border: '1px solid black',
+    backgroundColor: 'rgba(243, 240, 247, 0.4)',
+    boxShadow: '0 5px 5px 5px rgba(0, 0, 0, 0.2)',
     borderRadius: '5px',
     padding: '0.5rem',
     position: 'relative',
@@ -9,6 +11,9 @@ const styles = {
     cursor: 'pointer',
     '&:hover svg': {
       opacity: '1',
+    },
+    [sizes.down('md')]: {
+      boxShadow: '0 10px 10px 10px rgba(0, 0, 0, 0.2)',
     },
   },
   color: {
