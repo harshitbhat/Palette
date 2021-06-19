@@ -4,10 +4,11 @@ const styles = {
     border: '1px solid black',
     borderRadius: '5px',
     padding: '0.5rem',
-    position: 'realtive',
+    position: 'relative',
     overflow: 'hidden',
-    '&:hover': {
-      cursor: 'pointer',
+    cursor: 'pointer',
+    '&:hover svg': {
+      opacity: '1',
     },
   },
   color: {
@@ -40,6 +41,20 @@ const styles = {
     '&:hover': {
       width: '300%',
     },
+  },
+  delete: {},
+  deleteIcon: {
+    color: '#fff',
+    backgroundColor: '#eb3d30',
+    width: '25px',
+    height: '25px',
+    position: 'absolute',
+    bottom: '0px',
+    right: '0px',
+    padding: '4px',
+    zIndex: '10',
+    opacity: '0',
+    transition: 'all 0.5s ease-in-out',
   },
 };
 
