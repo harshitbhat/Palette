@@ -80,7 +80,9 @@ class NewPaletteForm extends Component {
       .map((palette) => palette.colors)
       .flat();
     let randomColor = allColors[Math.floor(Math.random() * allColors.length)];
-    while (this.state.colors.includes(randomColor.name)) {
+    const checkIfSame = (randomColor) =>
+      this.state.colors.some((color) => color.name === randomColor.name);
+    while (checkIfSame(randomColor)) {
       randomColor = allColors[Math.floor(Math.random() * allColors.length)];
     }
     this.setState({ colors: [...this.state.colors, randomColor] });

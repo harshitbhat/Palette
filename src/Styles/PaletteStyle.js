@@ -12,6 +12,7 @@ const styles = {
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignContent: 'flex-start',
+    // overflow: 'scroll',
   },
   goBack: {
     width: '20%',
