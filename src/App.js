@@ -1,9 +1,11 @@
-import { Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Palette from './Components/Palette/Palette';
-import seedPalettes from './seedPalettes';
+
 import { generatePalettes } from './ColorHelper';
+import seedPalettes from './seedPalettes';
+
+import Palette from './Components/Palette/Palette';
 import PaletteList from './Components/PaletteList/PaletteList';
 import SingleColorPalette from './Components/SingleColorPalette/SingleColorPalette';
 import NewPaletteForm from './Components/NewPaletteForm/NewPaletteForm';
@@ -17,9 +19,11 @@ class App extends Component {
       palettes: savedPalettes || seedPalettes,
     };
   }
+
   findPalette = (id) => {
     return this.state.palettes.find((palette) => palette.id === id);
   };
+
   deletePalette = (id) => {
     this.setState(
       (state) => ({
@@ -28,8 +32,8 @@ class App extends Component {
       this.syncWithLocalStorage
     );
   };
+
   savePalette = (newPalette) => {
-    console.log(newPalette);
     this.setState(
       { palettes: [...this.state.palettes, newPalette] },
       this.syncWithLocalStorage
@@ -59,7 +63,7 @@ class App extends Component {
                     <Page>
                       <NewPaletteForm
                         savePalette={this.savePalette}
-                        palettes={this.state.palettes}
+                        palettes={palettes}
                         {...routeProps}
                       />
                     </Page>
@@ -72,8 +76,8 @@ class App extends Component {
                     <Page>
                       <PaletteList
                         palettes={palettes}
-                        {...routeProps}
                         deletePalette={this.deletePalette}
+                        {...routeProps}
                       />
                     </Page>
                   )}
@@ -108,8 +112,8 @@ class App extends Component {
                     <Page>
                       <PaletteList
                         palettes={palettes}
-                        {...routeProps}
                         deletePalette={this.deletePalette}
+                        {...routeProps}
                       />
                     </Page>
                   )}
