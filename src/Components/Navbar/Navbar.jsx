@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import { withStyles } from '@material-ui/styles';
 import styles from '../../Styles/NavBarStyle.js';
+
 import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
+
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
-import 'rc-slider/assets/index.css';
 
 class Navbar extends Component {
   constructor(props) {
@@ -18,6 +21,7 @@ class Navbar extends Component {
       open: false,
     };
   }
+
   handleFormatChange = (evt) => {
     this.setState({ format: evt.target.value, open: true });
     this.props.handleChange(evt.target.value);
@@ -25,6 +29,7 @@ class Navbar extends Component {
   closeSnackbar = () => {
     this.setState({ open: false });
   };
+
   render() {
     const { level, changeLevel, showLevels, classes } = this.props;
     const { format } = this.state;
@@ -49,9 +54,9 @@ class Navbar extends Component {
         )}
         <div className={classes.selectContainer}>
           <Select value={format} onChange={this.handleFormatChange}>
-            <MenuItem value="hex">HEX - #ffffff</MenuItem>
-            <MenuItem value="rgb">RGB - rgb(255,255,255)</MenuItem>
-            <MenuItem value="rgba">RGBA - rgba(255,255,255,1.0)</MenuItem>
+            <MenuItem value="hex">HEX</MenuItem>
+            <MenuItem value="rgb">RGB</MenuItem>
+            <MenuItem value="rgba">RGBA</MenuItem>
           </Select>
         </div>
         <Snackbar
