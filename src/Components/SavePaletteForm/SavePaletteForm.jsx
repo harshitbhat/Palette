@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+
+import { Picker } from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
+
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Picker } from 'emoji-mart';
-import 'emoji-mart/css/emoji-mart.css';
 
 class SavePaletteForm extends Component {
   constructor(props) {
@@ -54,7 +57,6 @@ class SavePaletteForm extends Component {
   };
 
   savePalette = (emojiObj) => {
-    console.log(emojiObj.native);
     const newPalette = {
       name: this.state.newPaletteName,
       emoji: emojiObj.native,
@@ -64,15 +66,17 @@ class SavePaletteForm extends Component {
   };
 
   render() {
+    const { stage, newPaletteName } = this.state;
+    const { hideSaveForm } = this.props;
     return (
       <div>
-        <Dialog open={this.state.stage === 'emoji'}>
+        <Dialog open={stage === 'emoji'}>
           <DialogTitle id="form-dialog-title">Choose a emoji</DialogTitle>
           <Picker onSelect={this.savePalette} />
         </Dialog>
         <Dialog
-          open={this.state.stage === 'form'}
-          onClose={this.props.hideSaveForm}
+          open={stage === 'form'}
+          onClose={hideSaveForm}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Save Palette</DialogTitle>
@@ -84,7 +88,7 @@ class SavePaletteForm extends Component {
 
               <TextValidator
                 label="Palette Name"
-                value={this.state.newPaletteName}
+                value={newPaletteName}
                 name="newPaletteName"
                 fullWidth
                 margin="normal"
