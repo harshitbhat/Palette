@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
+
+import { arrayMove } from 'react-sortable-hoc';
+
 import classNames from 'classnames';
+
 import { withStyles } from '@material-ui/core/styles';
+import styles from '../../Styles/NewPaletteFormStyle';
+
 import Drawer from '@material-ui/core/Drawer';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
+
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+
 import DragableColorList from '../DragableColorList/DragableColorList';
-import { arrayMove } from 'react-sortable-hoc';
 import NewPaletteFormNav from '../NewPaletteFormNav/NewPaletteFormNav';
 import ColorPickerForm from '../ColorPickerForm/ColorPickerForm';
-import styles from '../../Styles/NewPaletteFormStyle';
+
 import seedPalettes from '../../seedPalettes';
 
 class NewPaletteForm extends Component {
@@ -144,7 +151,7 @@ class NewPaletteForm extends Component {
               <ColorPickerForm
                 isPaletteFull={isPaletteFull}
                 addNewColor={this.addNewColor}
-                colors={this.state.colors}
+                colors={colors}
               />
             </div>
           </div>
